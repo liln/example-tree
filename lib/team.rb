@@ -8,13 +8,13 @@ phil = Tree.new('Phil',Tree.new('Craig'),Tree.new('Eddie'))
 appleteam = Tree.new('Tim',j,phil)
 
 puts "Preorder:"
-Tree.preorder(appleteam)
+puts appleteam.preorder
 puts ""
 
 puts "Inorder:"
-Tree.inorder(appleteam)
+puts appleteam.inorder
 puts ""
 
 puts "Postorder:"
-Tree.postorder(appleteam)
+puts appleteam.postorder
 puts ""
