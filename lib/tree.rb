@@ -1,22 +1,35 @@
 class Tree
-  attr_accessor :name, :left, :right
+  attr_accessor :value, :left, :right
 
-  def initialize(name, left = nil, right = nil)
-    @name = name
+  def initialize(value, left = nil, right = nil)
+    @value = value
     @left = left
     @right = right
   end
 
+  def self.make_tree(array)
+    return nil if array.empty?
+    m = array.length / 2
+    Tree.new(array[m], make_tree(array[0...m]), make_tree(array[m+1...array.length]))
+  end
+
+  # if I can't use array slices
+  def self.make_tree2(a,b,e) # array, [beginning,end)
+    return nil if b >= e
+    m = (e - b) / 2 + b
+    Tree.new(a[m], make_tree2(a,b,m), make_tree2(a,m+1,e))
+  end
+
   def preorder
-    ([@name.to_s, @left ? @left.preorder : '', @right ? @right.preorder : ''] - ['']).flatten
+    ([@value, @left ? @left.preorder : '', @right ? @right.preorder : ''] - ['']).flatten
   end
 
   def inorder
-    ([@left ? @left.inorder : '', @name.to_s, @right ? @right.inorder : ''] - ['']).flatten
+    ([@left ? @left.inorder : '', @value, @right ? @right.inorder : ''] - ['']).flatten
   end
 
   def postorder
-    ([@left ? @left.postorder : '', @right ? @right.postorder : '', @name.to_s] - ['']).flatten
+    ([@left ? @left.postorder : '', @right ? @right.postorder : '', @value] - ['']).flatten
   end
 end
 

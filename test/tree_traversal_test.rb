@@ -1,7 +1,7 @@
 require_relative "test_helper"
 require "tree"
 
-class TreeTest < Minitest::Unit::TestCase
+class TreeTraversalTest < Minitest::Unit::TestCase
   def setup
     c = Tree.new('c',Tree.new('d'))
     b = Tree.new('b')
