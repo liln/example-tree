@@ -1,5 +1,5 @@
 class Tree
-  attr_accessor :value, :left, :right
+  attr_reader :value, :left, :right
 
   def initialize(value, left = nil, right = nil)
     @value = value
@@ -21,15 +21,20 @@ class Tree
   end
 
   def preorder
-    ([@value, @left ? @left.preorder : '', @right ? @right.preorder : ''] - ['']).flatten
+    ([value, left ? left.preorder : '', right ? right.preorder : ''] - ['']).flatten
   end
 
   def inorder
-    ([@left ? @left.inorder : '', @value, @right ? @right.inorder : ''] - ['']).flatten
+    ([left ? left.inorder : '', value, right ? right.inorder : ''] - ['']).flatten
   end
 
   def postorder
-    ([@left ? @left.postorder : '', @right ? @right.postorder : '', @value] - ['']).flatten
+    ([left ? left.postorder : '', right ? right.postorder : '', value] - ['']).flatten
+  end
+
+  def depth
+    return 1 if left.nil? && right.nil?
+    1 + [left ? left.depth : 0, right ? right.depth : 0].max
   end
 
   def self.depth (tree)

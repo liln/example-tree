@@ -7,7 +7,7 @@ class TreeMakeTest < Minitest::Unit::TestCase
     @array1 = [1]
     @array2 = [1,2]
     @array3 = [1,2,3]
-    @array = [0,1,2,3,4,5,6,7,8,9]
+    @array = (0..9).to_a
   end
 
   def test_make_tree
