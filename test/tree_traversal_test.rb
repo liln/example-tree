@@ -19,15 +19,4 @@ class TreeTraversalTest < Minitest::Unit::TestCase
   def test_postorder
     assert_equal @tree.postorder, ['b','d','c','a']
   end
-
-  def test_depth
-    assert_equal Tree.depth(nil), 0
-    assert_equal Tree.depth(Tree.new(1)), 1
-    assert_equal Tree.depth(@tree), 3
-  end
-
-  def test_depth2
-    assert_equal @tree.depth, 3
-    assert_equal Tree.new(1).depth, 1
-  end
 end

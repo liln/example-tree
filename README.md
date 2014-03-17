@@ -6,6 +6,8 @@ This repository contains ruby code I've written to solve various tree problems.
 
 * [Making the Optimal Binary Search Tree](#make_bst)
 
+* [Is a Tree Balanced?](#balanced)
+
 
 ## Traversal<a name="traversal">
 
@@ -41,3 +43,8 @@ Dan Peter Andrea Katie Jony Craig Eddie Phil Tim
 ## Making a Binary Search Tree<a name="make_bst">
 
 Given a sorted list, make an optimal binary search tree.
+
+
+## Balanced Tree?<a name="balanced">
+
+Given a tree, return true if it is balanced and false otherwise. For simplicity, a tree is considered balanced if the depth of each branch is within one.

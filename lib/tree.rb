@@ -32,6 +32,12 @@ class Tree
     ([left ? left.postorder : '', right ? right.postorder : '', value] - ['']).flatten
   end
 
+  def self.isbalanced? (tree)
+    return true if tree.nil?
+    return false if (depth(tree.left) - depth(tree.right)).abs > 1
+    isbalanced?(tree.left) && isbalanced?(tree.right)
+  end
+
   def depth
     return 1 if left.nil? && right.nil?
     1 + [left ? left.depth : 0, right ? right.depth : 0].max
