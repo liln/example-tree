@@ -31,5 +31,10 @@ class Tree
   def postorder
     ([@left ? @left.postorder : '', @right ? @right.postorder : '', @value] - ['']).flatten
   end
+
+  def self.depth (tree)
+    return 0 if tree.nil?
+    1 + [depth(tree.left), depth(tree.right)].max
+  end
 end
 
