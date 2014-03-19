@@ -21,15 +21,27 @@ class Tree
   end
 
   def preorder
-    ([value, left ? left.preorder : '', right ? right.preorder : ''] - ['']).flatten
+    s = Array.new
+    s << value
+    s << left.preorder if left
+    s << right.preorder if right
+    s.flatten
   end
 
   def inorder
-    ([left ? left.inorder : '', value, right ? right.inorder : ''] - ['']).flatten
+    s = Array.new
+    s << left.inorder if left
+    s << value
+    s << right.inorder if right
+    s.flatten
   end
 
   def postorder
-    ([left ? left.postorder : '', right ? right.postorder : '', value] - ['']).flatten
+    s = Array.new
+    s << left.postorder if left
+    s << right.postorder if right
+    s << value
+    s.flatten
   end
 
   def self.isbalanced? (tree)
