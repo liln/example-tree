@@ -1,3 +1,5 @@
+require_relative "node"
+
 class Tree
   attr_reader :value, :left, :right
 
